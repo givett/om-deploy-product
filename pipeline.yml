@@ -16,32 +16,32 @@ jobs:
         path: echo
         args: ["Hello, crazy world!"]
 
-  #  - get: git
-  #    trigger: true
+  - get: git
+    trigger: true
 
-  #  - task: deploy-product
-  #    config:
-  #      platform: linux
-  #      image_resource:
-  #        type: docker-image
-  #        source:
-  #          repository: starkandwayne/concourse
-  #          tag:        latest
-  #      inputs:
-  #        - name: git
-  #      run:
-  #        path: ./git/om-test-script
-  #        args: []
-  #      params:
-  #        OPSMAN_URL:      ((opsman_url))
-  #        OPSMAN_USER:     ((opsman_user))
-  #        OPSMAN_PASSWORD: ((opsman_password))
+  - task: deploy-product
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: starkandwayne/concourse
+          tag:        latest
+      inputs:
+        - name: git
+      run:
+        path: ./git/om-test-script
+        args: []
+      params:
+        OPSMAN_URL:      ((opsman_url))
+        OPSMAN_USER:     ((opsman_user))
+        OPSMAN_PASSWORD: ((opsman_password))
 
-  #resources:
-  #- name: git
-  #  type: git
-  #  source:
-  #    uri: https://github.com/givett/om-deploy-product
-  #    branch: master
-  #    username: ((github_username))
-  #    password: ((github_access_token))
+resources:
+- name: git
+  type: git
+  source:
+    uri: https://github.com/givett/om-deploy-product
+    branch: master
+    username: ((github_username))
+    password: ((github_access_token))
