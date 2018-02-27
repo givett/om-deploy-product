@@ -8,19 +8,19 @@ jobs:
   plan:
   - get: git
     trigger: true
-  - task: deploy-product
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: starkandwayne/concourse
-          tag:        latest
-      inputs:
-        - name: git
-      run:
-        path: ./om-test-script
-        args: []
+  #  - task: deploy-product
+  #    config:
+  #      platform: linux
+  #      image_resource:
+  #        type: docker-image
+  #        source:
+  #          repository: starkandwayne/concourse
+  #          tag:        latest
+  #      inputs:
+  #        - name: git
+  #      run:
+  #        path: ./git/om-test-script
+  #        args: []
 
 resources:
 - name: git
