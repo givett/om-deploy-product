@@ -1,0 +1,122 @@
+om -k \
+  --target https://10.213.10.1 \
+  --username admin \
+  --password Cloudc0w \
+    configure-product \
+      --product-name pivotal-mysql \
+      --product-network '{
+        "singleton_availability_zone": {
+          "name": "default-az"
+        },
+        "other_availability_zones": [
+          {
+            "name": "default-az"
+          }
+        ],
+        "network": {
+          "name": "default-network"
+        },
+        "service_network": {
+          "name": "services-network"
+        }
+      }' \
+      --product-properties '{
+        ".properties.plan1_selector": {
+          "type": "selector",
+          "configurable": true,
+          "credential": false,
+          "value": "Active",
+          "optional": false
+        },
+        ".properties.plan1_selector.active.vm_type": {
+          "type": "vm_type_dropdown",
+          "configurable": true,
+          "credential": false,
+          "value": "micro",
+          "optional": false
+        },
+        ".properties.plan1_selector.active.disk_size": {
+          "type": "disk_type_dropdown",
+          "configurable": true,
+          "credential": false,
+          "value": "1024",
+          "optional": false
+        },
+        ".properties.plan1_selector.active.az_single_select": {
+          "type": "service_network_az_single_select",
+          "configurable": true,
+          "credential": false,
+          "value": "default-az",
+          "optional": false
+        },
+        ".properties.plan1_selector.active.access_dropdown": {
+          "type": "dropdown_select",
+          "configurable": true,
+          "credential": false,
+          "value": "enable",
+          "optional": false,
+          "options": [
+            {
+              "label": "Enable",
+              "value": "enable"
+            },
+            {
+              "label": "Disable",
+              "value": "disable"
+            },
+            {
+              "label": "Manual",
+              "value": "manual"
+            }
+          ]
+        },
+        ".properties.plan1_selector.active.name": {
+          "type": "string",
+          "configurable": true,
+          "credential": false,
+          "value": "db-micro",
+          "optional": false
+        },
+        ".properties.plan1_selector.active.description": {
+          "type": "text",
+          "configurable": true,
+          "credential": false,
+          "value": "This plan provides a small dedicated MySQL instance.",
+          "optional": false
+        },
+        ".properties.plan1_selector.active.instance_limit": {
+          "type": "integer",
+          "configurable": true,
+          "credential": false,
+          "value": null,
+          "optional": true
+        },
+        ".properties.plan2_selector": {
+          "type": "selector",
+          "configurable": true,
+          "credential": false,
+          "value": "Inactive",
+          "optional": false
+        },
+        ".properties.plan3_selector": {
+          "type": "selector",
+          "configurable": true,
+          "credential": false,
+          "value": "Inactive",
+          "optional": false
+        },
+        ".properties.plan4_selector": {
+          "type": "selector",
+          "configurable": true,
+          "credential": false,
+          "value": "Inactive",
+          "optional": false
+        },
+        ".properties.plan5_selector": {
+          "type": "selector",
+          "configurable": true,
+          "credential": false,
+          "value": "Inactive",
+          "optional": false
+        }
+      }'

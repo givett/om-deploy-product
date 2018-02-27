@@ -1,0 +1,30 @@
+groups:
+  - name: om-mysql
+    jobs:
+      - deploy-product
+
+jobs:
+- name: deploy-product
+  plan:
+  - get: git
+    trigger: true
+  #  - task: deploy-product
+  #    config:
+  #      platform: linux
+  #      image_resource:
+  #        type: docker-image
+  #        source:
+  #          repository: starkandwayne/concourse
+  #          tag:        latest
+  #      run:
+  #        path: ./om-mysql-script
+  #        args: []
+
+resources:
+- name: git
+  type: git
+  source:
+    uri: https://github.com/givett/om-deploy-product
+    branch: master
+    username: ((github_username))
+    password: ((github_access_token))

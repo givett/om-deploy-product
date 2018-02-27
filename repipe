@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fly set-pipeline -p om-mysql -c pipeline.yml -l settings.yml
