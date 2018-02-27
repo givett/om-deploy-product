@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e -x -u
 
-#cf api $CF_API_URL --skip-ssl-validation
-#cf auth $CF_USERNAME $CF_PASSWORD
+# om -k --target https://10.213.10.1 --username admin --password Cloudc0w upload-product --product pivotal-mysql-2.0.5.pivotal
 
-#cf target -o $CF_ORG -s $CF_SPACE
-
-om -k --target https://10.213.10.1 --username admin --password Cloudc0w upload-product --product pivotal-mysql-2.0.5.pivotal
+om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products

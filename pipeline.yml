@@ -32,6 +32,10 @@ jobs:
   #      run:
   #        path: ./git/om-test-script
   #        args: []
+  #      params:
+  #        OPSMAN_URL:      ((opsman_url))
+  #        OPSMAN_USER:     ((opsman_user))
+  #        OPSMAN_PASSWORD: ((opsman_password))
 
   #resources:
   #- name: git
