@@ -5,7 +5,9 @@ om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD a
 
 FILE_PATH=`find ./ -name pivotal-mysql-2.0.5.pivotal`
 echo $FILE_PATH
-om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-product --product ./pivotal-mysql-2.0.5.pivotal -p $FILE_PATH
+FILE_PATH='/tmp/build/get/'
+echo $FILE_PATH
+om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-product --product pivotal-mysql-2.0.5.pivotal -p $FILE_PATH
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products
 
