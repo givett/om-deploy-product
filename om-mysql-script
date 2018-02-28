@@ -3,8 +3,9 @@ set -e -x -u
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products
 
-FILE_PATH=`find -name *.pivotal`
-om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-product --product ./pivotal-mysql-2.0.5.pivotal
+FILE_PATH=`find -name pivotal-mysql-2.0.5.pivotal`
+echo $FILE_PATH
+om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-product --product ./pivotal-mysql-2.0.5.pivotal -p $FILE_PATH
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products
 
