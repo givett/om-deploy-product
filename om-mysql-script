@@ -3,8 +3,7 @@ set -e -x -u
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products
 
-
-om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-product --product '/tmp/build/get/pivotal-mysql-2.0.5.pivotal'
+om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-product --product ./pivotal-mysql-2.0.5.pivotal
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products
 
