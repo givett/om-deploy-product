@@ -30,7 +30,7 @@ jobs:
       inputs:
         - name: git
       run:
-        path: ./git/om-test-script
+        path: ./git/om-mysql-script
         args: []
       params:
         OPSMAN_URL:      ((opsman_url))

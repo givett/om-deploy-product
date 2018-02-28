@@ -1,7 +1,14 @@
+#!/bin/bash
+set -e -x -u
+
+om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products
+
+om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD stage-product --product-name pivotal-mysql --product-version 2.0.5
+
 om -k \
-  --target https://10.213.10.1 \
-  --username admin \
-  --password Cloudc0w \
+  --target $OPSMAN_URL \
+  --username $OPSMAN_USER \
+  --password $OPSMAN_PASSWORD \
     configure-product \
       --product-name pivotal-mysql \
       --product-network '{
