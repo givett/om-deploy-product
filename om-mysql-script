@@ -3,13 +3,14 @@ set -e -x -u
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products
 
-om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-stemcell --stemcell bosh-stemcell-3363.26-vsphere-esxi-ubuntu-trusty-go_agent.tgz
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-product --product pivotal-mysql-2.0.5.pivotal
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD available-products
 
 om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD stage-product --product-name pivotal-mysql --product-version 2.0.5
+
+om -k --target $OPSMAN_URL --username $OPSMAN_USER --password $OPSMAN_PASSWORD upload-stemcell --stemcell bosh-stemcell-3363.26-vsphere-esxi-ubuntu-trusty-go_agent.tgz
 
 om -k \
   --target $OPSMAN_URL \
